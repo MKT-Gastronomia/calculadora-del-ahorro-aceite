@@ -584,7 +584,7 @@
       gastoNuevoEl.textContent = 'S/ 0';
       bar.style.width = '0%';
       pctTxt.textContent = 'Ahorro del 0% vs. situación actual';
-      baldesGratis.textContent = '≈ 0 baldes gratis por mes';
+      baldesGratis.textContent = '≈ 0';
       ppEspRow.style.display = 'none';
       equivalenciaMonto.textContent = 'Si hoy gastas S/ 0, con el formato seleccionado equivaldría a S/ 0';
       return;
@@ -610,7 +610,7 @@
       ahorro.textContent = 'S/ 0';
       pctTxt.textContent = 'Ahorro del 0% vs. situación actual';
       bar.style.width = '0%';
-      baldesGratis.textContent = '≈ 0 baldes gratis por mes';
+      baldesGratis.textContent = '≈ 0';
     }
 
     if(isFinite(c.equivalencia) && isFinite(c.montoLibre) && selected){
@@ -643,8 +643,7 @@
 
   document.getElementById('btnAnalizar').addEventListener('click', ()=>{
     tilePPL.dataset.show = "1";
-    const selected = getSelectedCard() || cardTondero;
-    seleccionarProducto(selected);
+    render(getSelectedCard());
   });
 
   cardTondero.addEventListener('click', ()=>seleccionarProducto(cardTondero));
