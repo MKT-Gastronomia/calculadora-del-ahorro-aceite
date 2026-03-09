@@ -6,19 +6,20 @@
 <title>Quri — tu calculadora de ahorro</title>
 <style>
   :root{
-    --bg: #f7f2e8;
-    --bg-soft: #fbf7ef;
-    --panel: #fffdf9;
-    --panel-2: #f9f4ea;
-    --gold: #c89b2c;
-    --gold-2: #a97e18;
-    --gold-soft: #ead9ac;
+    --bg: #d7a32a;
+    --bg-2: #c58f17;
+    --bg-3: #e0b646;
+    --panel: #f4cf62;
+    --panel-2: #edc14a;
+    --gold: #8f5f00;
+    --gold-2: #6f4900;
+    --gold-soft: #f3d377;
     --accent: #18b279;
     --accent-2: #119866;
-    --text: #2a2318;
-    --muted: #7b6d57;
-    --ring: #e4d5b7;
-    --shadow: 0 10px 30px rgba(120, 89, 24, 0.08);
+    --text: #3b2803;
+    --muted: #76561a;
+    --ring: #d39d24;
+    --shadow: 0 10px 30px rgba(110, 71, 0, 0.16);
   }
 
   *{box-sizing:border-box}
@@ -29,17 +30,18 @@
     font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color:var(--text);
     background:
-      radial-gradient(1000px 500px at 50% -180px, #fff8e8 0%, #f7f2e8 45%, #f3ecdf 100%);
+      radial-gradient(1100px 520px at 50% -200px, #f0c94e 0%, #dfae33 42%, #cf971d 100%);
   }
 
   .wrap{max-width:1200px;margin:0 auto;padding:24px}
   header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
   header img{height:28px}
-  header h1{font-size:20px;margin:0;font-weight:800;color:#3a2d14}
+  header h1{font-size:20px;margin:0;font-weight:800;color:#4a2f00}
   header p{margin:2px 0 0;color:var(--muted);font-size:13px}
+
   .rule{
     height:4px;
-    background:linear-gradient(90deg, rgba(200,155,44,.55), rgba(200,155,44,.18) 55%, transparent);
+    background:linear-gradient(90deg, rgba(143,95,0,.55), rgba(143,95,0,.18) 55%, transparent);
     border-radius:999px;
     margin:10px 0 22px
   }
@@ -54,23 +56,23 @@
     padding:20px;
     box-shadow:var(--shadow);
   }
-  .panel h2{margin:0 0 12px 0;font-size:19px;color:#3a2d14}
+  .panel h2{margin:0 0 12px 0;font-size:19px;color:#4a2f00}
 
   label{display:block;font-size:13px;color:var(--muted);margin:0 0 6px}
   input, select{
     width:100%;
     padding:12px 12px;
     border-radius:12px;
-    border:1px solid var(--ring);
-    background:#fffefb;
+    border:1px solid #c98f12;
+    background:#f8dd8c;
     color:var(--text);
     font-size:15px;
     outline:none;
   }
-  input::placeholder{color:#a09178}
+  input::placeholder{color:#9a7427}
   input:focus, select:focus{
-    border-color:#d4b25d;
-    box-shadow:0 0 0 3px rgba(200,155,44,.12);
+    border-color:#8f5f00;
+    box-shadow:0 0 0 3px rgba(143,95,0,.14);
   }
 
   .inputs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -91,38 +93,38 @@
     justify-content:center;
   }
   .btn.secondary{
-    background:#fffaf0;
-    border-color:var(--ring);
-    color:#5c4b2a;
+    background:#f6d978;
+    border-color:#c89013;
+    color:#5c3d00;
   }
   .btn:hover{filter:brightness(1.03)}
   .btn:disabled{opacity:.6; cursor:not-allowed}
 
   .tile{
-    border:1px solid var(--ring);
+    border:1px solid #cf9820;
     border-radius:14px;
     padding:14px;
-    background:linear-gradient(180deg,#fffefb,#f8f2e6);
+    background:linear-gradient(180deg,#f8dd8b,#efc755);
   }
   .tile + .tile{margin-top:12px}
   .tile .ttl{color:var(--muted);font-size:13px;margin-bottom:4px}
-  .tile .val{font-size:28px;font-weight:800;color:#2f2413}
+  .tile .val{font-size:28px;font-weight:800;color:#412b02}
 
   .tile.accent{
-    border-color:rgba(200,155,44,.65);
-    box-shadow:0 0 0 1px rgba(200,155,44,.15) inset;
-    background:linear-gradient(180deg,#fff8e8,#f6eedc 60%);
+    border-color:rgba(143,95,0,.45);
+    box-shadow:0 0 0 1px rgba(143,95,0,.10) inset;
+    background:linear-gradient(180deg,#f7d979,#eebb37 60%);
   }
 
   .chip{
     display:inline-block;
     padding:4px 8px;
     border-radius:999px;
-    background:rgba(200,155,44,.14);
-    color:#8a6612;
+    background:rgba(143,95,0,.10);
+    color:#7b5000;
     font-weight:700;
     font-size:12px;
-    border:1px solid rgba(200,155,44,.35);
+    border:1px solid rgba(143,95,0,.22);
     margin-left:6px;
   }
 
@@ -133,28 +135,28 @@
     align-items:center;
     padding:14px;
     border-radius:14px;
-    border:1px solid var(--ring);
-    background:linear-gradient(180deg,#fffefb,#f8f2e6 60%);
+    border:1px solid #cf9820;
+    background:linear-gradient(180deg,#f8dc87,#edc24f 60%);
     cursor:pointer;
     transition:border-color .15s, box-shadow .15s, background .15s;
     margin-top:6px;
   }
-  .card:hover{border-color:#d6b15a}
+  .card:hover{border-color:#9c6800}
   .card.selected{
-    border-color:rgba(200,155,44,.75);
-    box-shadow:0 0 0 2px rgba(200,155,44,.16) inset;
-    background:linear-gradient(180deg,#fff8e8,#f6eedb 60%);
+    border-color:rgba(143,95,0,.75);
+    box-shadow:0 0 0 2px rgba(143,95,0,.12) inset;
+    background:linear-gradient(180deg,#f8d66c,#e8b62f 60%);
   }
   .card img{
     width:54px;
     height:54px;
     object-fit:contain;
     border-radius:10px;
-    background:#fff8ea;
-    border:1px solid #efe1c1;
+    background:#f7df92;
+    border:1px solid #ddb24f;
   }
-  .card h3{margin:0;font-size:16px;color:#2e2412}
-  .card .meta{color:#8c7a5e;font-size:13px}
+  .card h3{margin:0;font-size:16px;color:#412b02}
+  .card .meta{color:#7c5b1f;font-size:13px}
   .card .content{padding-right:140px}
 
   .ribbon{
@@ -162,7 +164,7 @@
     right:12px;
     top:10px;
     background:var(--gold);
-    color:#fffdf8;
+    color:#fff7e6;
     font-weight:800;
     font-size:12px;
     padding:7px 12px;
@@ -179,19 +181,19 @@
     margin-top:14px;
     padding:14px;
     border-radius:14px;
-    border:1px solid var(--ring);
-    background:linear-gradient(180deg,#fff8e8,#f6eedc 60%);
+    border:1px solid #cf9820;
+    background:linear-gradient(180deg,#f7d875,#ebb932 60%);
   }
-  .stat .kicker{color:#8c7a5e;font-size:13px;margin-bottom:8px}
-  .stat .money{font-size:34px;font-weight:900;letter-spacing:.2px;color:#2e2412}
+  .stat .kicker{color:#7c5b1f;font-size:13px;margin-bottom:8px}
+  .stat .money{font-size:34px;font-weight:900;letter-spacing:.2px;color:#412b02}
 
   .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
   @media (max-width:680px){.row{grid-template-columns:1fr}}
 
   .progress{
     height:12px;
-    background:#f2e7cf;
-    border:1px solid #e5d1a0;
+    background:#efd992;
+    border:1px solid #d6a73f;
     border-radius:999px;
     overflow:hidden
   }
@@ -202,11 +204,12 @@
     background:linear-gradient(90deg,#17b47a,#59d39f)
   }
 
-  .subtle{color:#8c7a5e;font-size:13px}
+  .subtle{color:#7c5b1f;font-size:13px}
+  .cta-result{margin-top:16px;width:100%}
 
   @media print{
     body{background:#fff}
-    header,.grid > .left,.rule,.actions,.cta-link{display:none !important}
+    header,.grid > .left,.rule,.actions,.cta-result{display:none !important}
     #results{border:none;box-shadow:none}
     #results .panel{background:#fff;color:#000;border-color:#eee}
   }
@@ -216,7 +219,7 @@
   <div class="wrap">
     <header>
       <img src="images/alicorp.png" alt="Alicorp"
-           onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%2240%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23fff8ea%22/><text x=%2210%22 y=%2226%22 fill=%22%23a97e18%22 font-size=%2220%22 font-family=%22Arial%22>ALICORP</text></svg>';">
+           onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%2240%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23edc24f%22/><text x=%2210%22 y=%2226%22 fill=%22%236f4900%22 font-size=%2220%22 font-family=%22Arial%22>ALICORP</text></svg>';">
       <div>
         <h1>Quri — tu calculadora de ahorro</h1>
         <p class="subtle">Buscando el dorado perfecto que rinda más</p>
@@ -226,9 +229,7 @@
     <div class="rule"></div>
 
     <div class="grid">
-      <!-- Columna izquierda -->
       <section class="panel left">
-
         <h2>Tu consumo de aceite hoy</h2>
         <div class="inputs">
           <div>
@@ -264,7 +265,7 @@
           <img id="imgTondero" src="images/tonderofrituras"
                data-candidates="images/tonderofrituras,images/tonderofrituras.png,images/tonderofrituras.jpg,images/tonderofrituras.jpeg,images/tonderofrituras.webp"
                alt="Tondero Frituras"
-               onerror="(function(img){var list=(img.dataset.candidates||'').split(','),i=parseInt(img.dataset.i||'0',10)+1;if(i<list.length){img.dataset.i=i;img.src=list[i];}else{img.onerror=null;img.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2254%22 height=%2254%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23fff8ea%22/><text x=%224%22 y=%2232%22 fill=%22%23a97e18%22 font-size=%2210%22 font-family=%22Arial%22>TONDERO</text></svg>';}})(this)">
+               onerror="(function(img){var list=(img.dataset.candidates||'').split(','),i=parseInt(img.dataset.i||'0',10)+1;if(i<list.length){img.dataset.i=i;img.src=list[i];}else{img.onerror=null;img.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2254%22 height=%2254%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23f7df92%22/><text x=%224%22 y=%2232%22 fill=%22%236f4900%22 font-size=%2210%22 font-family=%22Arial%22>TONDERO</text></svg>';}})(this)">
           <div class="content">
             <h3>Tondero Extra Frituras</h3>
             <div class="meta">20 L · Rendimiento garantizado</div>
@@ -276,10 +277,6 @@
           <div>
             <label>Precio por balde del aceite especializado (S/)</label>
             <input id="precioEspecializado" type="number" min="0" step="0.01" placeholder="Ingresa aquí: precio">
-          </div>
-          <div>
-            <label>Monto de gasto a convertir (S/)</label>
-            <input id="montoObjetivo" type="number" min="0" step="0.01" placeholder="Ej: 1500">
           </div>
         </div>
 
@@ -308,14 +305,12 @@
             </select>
           </div>
           <div class="right">
-            <a class="btn cta-link" id="btnAsesoria" href="https://docs.google.com/forms/d/e/1FAIpQLSfsv2FTRvQss6M9rFyufRGFdHw7npstrPuyQTV817fgjkmhtw/viewform" target="_blank" rel="noopener noreferrer">Quiero asesoría técnica</a>
             <button class="btn secondary" id="btnGuardar">Guardar (PDF)</button>
             <button class="btn secondary" id="btnLimpiar">Limpiar datos</button>
           </div>
         </div>
       </section>
 
-      <!-- Columna derecha -->
       <section class="panel results" id="results">
         <h2 class="head">Resultado de tu transformación</h2>
 
@@ -338,10 +333,18 @@
 
         <div class="tile" style="margin-top:12px">
           <div class="ttl">📈 Conversión de gasto con +50% rendimiento</div>
-          <div class="progress" aria-label="Progreso"><i id="bar" style="width:0%"></i></div>
+
+          <div style="margin-top:10px">
+            <label>Monto de gasto a convertir (S/)</label>
+            <input id="montoObjetivo" type="number" min="0" step="0.01" placeholder="Ej: 1500">
+          </div>
+
+          <div class="progress" aria-label="Progreso" style="margin-top:12px"><i id="bar" style="width:0%"></i></div>
           <div class="subtle" id="porcentaje" style="margin-top:6px">Ahorro del 0% vs. situación actual</div>
           <div class="subtle" id="equivalenciaMonto" style="margin-top:8px">Si hoy gastas S/ 0, con un aceite que rinde +50% equivaldría a S/ 0</div>
         </div>
+
+        <a class="btn cta-result" id="btnAsesoria" href="https://docs.google.com/forms/d/e/1FAIpQLSfsv2FTRvQss6M9rFyufRGFdHw7npstrPuyQTV817fgjkmhtw/viewform" target="_blank" rel="noopener noreferrer">Quiero asesoría técnica</a>
       </section>
     </div>
   </div>
