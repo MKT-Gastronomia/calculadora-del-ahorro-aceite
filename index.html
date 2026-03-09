@@ -131,6 +131,12 @@
     margin-left:6px;
   }
 
+  .product-list{
+    display:grid;
+    gap:12px;
+    margin-top:6px;
+  }
+
   .card{
     position:relative;
     display:flex;
@@ -143,7 +149,6 @@
     color:var(--text-dark);
     cursor:pointer;
     transition:border-color .15s, box-shadow .15s, transform .15s;
-    margin-top:6px;
   }
   .card:hover{
     border-color:#d2b25b;
@@ -161,6 +166,7 @@
     border-radius:10px;
     background:#ffffff;
     border:1px solid #e5e9ee;
+    flex:0 0 54px;
   }
   .card h3{margin:0;font-size:16px;color:#17212b}
   .card .meta{color:#5f6c76;font-size:13px}
@@ -177,6 +183,7 @@
     padding:7px 12px;
     border-radius:999px;
     box-shadow:0 2px 0 0 var(--gold-2);
+    white-space:nowrap;
   }
 
   .actions{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-top:14px}
@@ -216,6 +223,29 @@
   .subtle-dark{color:var(--muted-dark);font-size:13px}
   .cta-result{margin-top:16px;width:100%}
 
+  .price-mode{
+    display:none;
+    margin-top:8px;
+    gap:14px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .price-mode.show{display:flex}
+  .price-mode label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0;
+    color:var(--muted);
+    font-size:12px;
+    cursor:pointer;
+  }
+  .price-mode input[type="radio"]{
+    width:auto;
+    margin:0;
+    accent-color:#18b279;
+  }
+
   @media print{
     body{background:#fff}
     header,.grid > .left,.rule,.actions,.cta-result{display:none !important}
@@ -231,7 +261,7 @@
            onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%2240%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23121f2a%22/><text x=%2210%22 y=%2226%22 fill=%22%23ffd76a%22 font-size=%2220%22 font-family=%22Arial%22>ALICORP</text></svg>';">
       <div>
         <h1>Quri — tu calculadora de ahorro</h1>
-        <p class="subtle">El color que fríe más</p>
+        <p class="subtle">Buscando el dorado perfecto que rinda más</p>
       </div>
     </header>
 
@@ -270,22 +300,40 @@
         <div style="height:18px"></div>
         <h2>Elige tu aceite especializado</h2>
 
-        <article class="card" id="cardTondero" data-id="tondero" data-litros="20" data-boost="0.5" aria-label="Tondero Extra Frituras">
-          <img id="imgTondero" src="images/tonderofrituras"
-               data-candidates="images/tonderofrituras,images/tonderofrituras.png,images/tonderofrituras.jpg,images/tonderofrituras.jpeg,images/tonderofrituras.webp"
-               alt="Tondero Frituras"
-               onerror="(function(img){var list=(img.dataset.candidates||'').split(','),i=parseInt(img.dataset.i||'0',10)+1;if(i<list.length){img.dataset.i=i;img.src=list[i];}else{img.onerror=null;img.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2254%22 height=%2254%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23ffffff%22/><text x=%224%22 y=%2232%22 fill=%22%235f6c76%22 font-size=%2210%22 font-family=%22Arial%22>TONDERO</text></svg>';}})(this)">
-          <div class="content">
-            <h3>Tondero Extra Frituras</h3>
-            <div class="meta">20 L · Rendimiento garantizado</div>
-          </div>
-          <div class="ribbon">+50% rendimiento</div>
-        </article>
+        <div class="product-list">
+          <article class="card" id="cardTondero" data-id="tondero" data-litros="20" data-boost="0.5" aria-label="Tondero Extra Frituras">
+            <img id="imgTondero" src="images/tonderofrituras"
+                 data-candidates="images/tonderofrituras,images/tonderofrituras.png,images/tonderofrituras.jpg,images/tonderofrituras.jpeg,images/tonderofrituras.webp"
+                 alt="Tondero Frituras"
+                 onerror="(function(img){var list=(img.dataset.candidates||'').split(','),i=parseInt(img.dataset.i||'0',10)+1;if(i<list.length){img.dataset.i=i;img.src=list[i];}else{img.onerror=null;img.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2254%22 height=%2254%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23ffffff%22/><text x=%224%22 y=%2232%22 fill=%22%235f6c76%22 font-size=%2210%22 font-family=%22Arial%22>TONDERO</text></svg>';}})(this)">
+            <div class="content">
+              <h3>Tondero Extra Frituras</h3>
+              <div class="meta">20 L · Rendimiento garantizado</div>
+            </div>
+            <div class="ribbon">+50% rendimiento</div>
+          </article>
+
+          <article class="card" id="cardPerol" data-id="perol" data-litros="0.9" data-boost="0.3" aria-label="Perol 900 ml">
+            <img id="imgPerol" src="images/perol"
+                 data-candidates="images/perol,images/perol.png,images/perol.jpg,images/perol.jpeg,images/perol.webp"
+                 alt="Perol 900 ml"
+                 onerror="(function(img){var list=(img.dataset.candidates||'').split(','),i=parseInt(img.dataset.i||'0',10)+1;if(i<list.length){img.dataset.i=i;img.src=list[i];}else{img.onerror=null;img.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2254%22 height=%2254%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23ffffff%22/><text x=%226%22 y=%2232%22 fill=%22%235f6c76%22 font-size=%2210%22 font-family=%22Arial%22>PEROL</text></svg>';}})(this)">
+            <div class="content">
+              <h3>Perol 900 ml</h3>
+              <div class="meta">0.9 L · Rendimiento garantizado</div>
+            </div>
+            <div class="ribbon">+30% rendimiento</div>
+          </article>
+        </div>
 
         <div class="inputs" style="margin-top:14px">
           <div>
-            <label>Precio por balde del aceite especializado (S/)</label>
+            <label>Precio del formato especializado seleccionado (S/)</label>
             <input id="precioEspecializado" type="number" min="0" step="0.01" placeholder="Ingresa aquí: precio">
+            <div id="priceModePerol" class="price-mode">
+              <label><input type="radio" name="modoPrecioPerol" value="botella" checked> Precio por botella</label>
+              <label><input type="radio" name="modoPrecioPerol" value="caja"> Precio por caja de 12</label>
+            </div>
           </div>
         </div>
 
@@ -341,7 +389,7 @@
         </div>
 
         <div class="tile" style="margin-top:12px">
-          <div class="ttl">📈 Conversión de gasto con +50% rendimiento</div>
+          <div class="ttl">📈 Conversión de gasto con rendimiento mejorado</div>
 
           <div style="margin-top:10px">
             <label style="color:var(--muted-dark)">Monto de gasto a convertir (S/)</label>
@@ -350,7 +398,7 @@
 
           <div class="progress" aria-label="Progreso" style="margin-top:12px"><i id="bar" style="width:0%"></i></div>
           <div class="subtle-dark" id="porcentaje" style="margin-top:6px">Ahorro del 0% vs. situación actual</div>
-          <div class="subtle-dark" id="equivalenciaMonto" style="margin-top:8px">Si hoy gastas S/ 0, con un aceite que rinde +50% equivaldría a S/ 0</div>
+          <div class="subtle-dark" id="equivalenciaMonto" style="margin-top:8px">Si hoy gastas S/ 0, con el formato seleccionado equivaldría a S/ 0</div>
         </div>
 
         <a class="btn cta-result" id="btnAsesoria" href="https://docs.google.com/forms/d/e/1FAIpQLSfsv2FTRvQss6M9rFyufRGFdHw7npstrPuyQTV817fgjkmhtw/viewform" target="_blank" rel="noopener noreferrer">Quiero asesoría técnica</a>
@@ -374,6 +422,7 @@
   const pplActualEl = $('#pplActual');
 
   const cardTondero = $('#cardTondero');
+  const cardPerol = $('#cardPerol');
 
   const ppEspRow = $('#ppEspRow');
   const pplEspNom = $('#pplEspNom');
@@ -389,6 +438,9 @@
   const lbl1 = $('#lblPeriodo1');
   const lbl2 = $('#lblPeriodo2');
   const equivalenciaMonto = $('#equivalenciaMonto');
+
+  const priceModePerol = $('#priceModePerol');
+  const radiosModoPerol = document.querySelectorAll('input[name="modoPrecioPerol"]');
 
   function fmt(n){
     return isFinite(n)
@@ -412,22 +464,50 @@
     return periodo.value === 'semana' ? 'semana' : (periodo.value === 'mes' ? 'mes' : 'año');
   }
 
+  function getSelectedCard(){
+    if(cardTondero.classList.contains('selected')) return cardTondero;
+    if(cardPerol.classList.contains('selected')) return cardPerol;
+    return null;
+  }
+
+  function getModoPrecioPerol(){
+    const checked = document.querySelector('input[name="modoPrecioPerol"]:checked');
+    return checked ? checked.value : 'botella';
+  }
+
+  function actualizarModoPrecioUI(){
+    const selected = getSelectedCard();
+    const show = selected && selected.dataset.id === 'perol';
+    priceModePerol.classList.toggle('show', !!show);
+  }
+
+  function seleccionarProducto(card){
+    [cardTondero, cardPerol].forEach(c => c.classList.remove('selected'));
+    if(card){
+      card.classList.add('selected');
+      actualizarModoPrecioUI();
+      render(card);
+    } else {
+      actualizarModoPrecioUI();
+      render(null);
+    }
+  }
+
   function currentCalc(selected){
     const P0 = parseFloat(precioActual.value);
     const L0 = parseFloat(litrosActual.value);
     const B = parseFloat(baldesSemana.value);
     const N = parseFloat(locales.value);
-    const P1 = parseFloat(precioEspecializado.value);
+    const precioIngresado = parseFloat(precioEspecializado.value);
     const montoLibre = parseFloat(montoObjetivo.value);
     const f = weeksFactor();
 
     const hasBase = isFinite(P0) && isFinite(L0) && isFinite(B) && isFinite(N);
-    const hasProdPrice = isFinite(P1);
 
     if(!hasBase){
       return {
         ready:false,
-        P0,L0,B,N,P1,montoLibre,f
+        P0,L0,B,N,precioIngresado,montoLibre,f
       };
     }
 
@@ -437,33 +517,49 @@
     let ahorroV = NaN;
     let pct = 0;
     let baldesMensualesGratis = 0;
-    let B1 = NaN;
     let prod = null;
+    let precioUnidad = NaN;
 
-    if(selected && hasProdPrice){
+    if(selected && isFinite(precioIngresado)){
+      const litros = parseFloat(selected.dataset.litros);
+      const boost = parseFloat(selected.dataset.boost);
+
+      if(selected.dataset.id === 'perol'){
+        const modo = getModoPrecioPerol();
+        precioUnidad = modo === 'caja' ? (precioIngresado / 12) : precioIngresado;
+      } else {
+        precioUnidad = precioIngresado;
+      }
+
       prod = {
         id: selected.dataset.id,
-        precio: P1,
-        litros: parseFloat(selected.dataset.litros),
-        boost: parseFloat(selected.dataset.boost),
+        precio: precioUnidad,
+        litros,
+        boost,
         nombre: selected.querySelector('h3').textContent.trim()
       };
 
       const effLit = prod.litros * (1 + prod.boost);
-      B1 = (B * L0) / effLit;
-      gastoNuevo = prod.precio * B1 * N * f;
+      const litrosTotalesActuales = B * L0;
+      const unidadesNecesariasNuevo = litrosTotalesActuales / effLit;
+
+      gastoNuevo = prod.precio * unidadesNecesariasNuevo * N * f;
       ahorroV = Math.max(0, gastoActual - gastoNuevo);
       pct = gastoActual > 0 ? (ahorroV / gastoActual) * 100 : 0;
 
       const weeksPerMonth = 4.33;
-      baldesMensualesGratis = Math.max(0, (B - B1) * N * weeksPerMonth);
+      baldesMensualesGratis = Math.max(0, (B - unidadesNecesariasNuevo) * N * weeksPerMonth);
     }
 
-    const equivalencia = isFinite(montoLibre) ? montoLibre / 1.5 : NaN;
+    let equivalencia = NaN;
+    if(selected && isFinite(montoLibre)){
+      const boost = parseFloat(selected.dataset.boost);
+      equivalencia = montoLibre / (1 + boost);
+    }
 
     return {
       ready:true,
-      P0,L0,B,N,P1,montoLibre,f,
+      P0,L0,B,N,precioIngresado,precioUnidad,montoLibre,f,
       gastoActual,gastoNuevo,ahorro:ahorroV,pct,
       baldesMensualesGratis,prod,equivalencia
     };
@@ -472,6 +568,7 @@
   function render(selected){
     lbl1.textContent = periodoLabel();
     lbl2.textContent = periodoLabel();
+    actualizarModoPrecioUI();
 
     const c = currentCalc(selected);
 
@@ -489,7 +586,7 @@
       pctTxt.textContent = 'Ahorro del 0% vs. situación actual';
       baldesGratis.textContent = '≈ 0 baldes gratis por mes';
       ppEspRow.style.display = 'none';
-      equivalenciaMonto.textContent = 'Si hoy gastas S/ 0, con un aceite que rinde +50% equivaldría a S/ 0';
+      equivalenciaMonto.textContent = 'Si hoy gastas S/ 0, con el formato seleccionado equivaldría a S/ 0';
       return;
     }
 
@@ -502,30 +599,39 @@
       const pct = Math.max(0, Math.round(c.pct));
       pctTxt.textContent = `Ahorro del ${pct}% vs. situación actual`;
       bar.style.width = Math.min(100, Math.max(0, c.pct)) + '%';
-      baldesGratis.textContent = `≈ ${fmt0(c.baldesMensualesGratis)} baldes gratis por mes`;
+
+      const nombreUnidad = selected.dataset.id === 'perol' ? 'botellas' : 'baldes';
+      baldesGratis.textContent = `≈ ${fmt0(c.baldesMensualesGratis)} ${nombreUnidad} gratis por mes`;
     } else {
       gastoNuevoEl.textContent = 'S/ 0';
       ahorro.textContent = 'S/ 0';
       pctTxt.textContent = 'Ahorro del 0% vs. situación actual';
       bar.style.width = '0%';
-      baldesGratis.textContent = '≈ 0 baldes gratis por mes';
+      baldesGratis.textContent = '≈ 0 unidades gratis por mes';
     }
 
-    if(isFinite(c.equivalencia) && isFinite(c.montoLibre)){
-      equivalenciaMonto.textContent = `Si hoy gastas S/ ${fmt(c.montoLibre)}, con un aceite que rinde +50% equivaldría a S/ ${fmt(c.equivalencia)}`;
+    if(isFinite(c.equivalencia) && isFinite(c.montoLibre) && selected){
+      const boost = Math.round(parseFloat(selected.dataset.boost) * 100);
+      equivalenciaMonto.textContent = `Si hoy gastas S/ ${fmt(c.montoLibre)}, con un aceite que rinde +${boost}% equivaldría a S/ ${fmt(c.equivalencia)}`;
     } else {
-      equivalenciaMonto.textContent = 'Si hoy gastas S/ 0, con un aceite que rinde +50% equivaldría a S/ 0';
+      equivalenciaMonto.textContent = 'Si hoy gastas S/ 0, con el formato seleccionado equivaldría a S/ 0';
     }
 
-    if(selected && isFinite(c.P1)){
+    if(selected && isFinite(c.precioUnidad)){
       const litros = parseFloat(selected.dataset.litros);
       const boost = parseFloat(selected.dataset.boost);
-      const pplNominal = c.P1 / litros;
-      const pplEff = c.P1 / (litros * (1 + boost));
+      const pplNominal = c.precioUnidad / litros;
+      const pplEff = c.precioUnidad / (litros * (1 + boost));
 
       pplEspNom.textContent = 'S/ ' + fmt(pplNominal);
       pplEspEff.textContent = 'S/ ' + fmt(pplEff);
-      pplEspNote.textContent = `Calculado con +${Math.round(boost * 100)}% rendimiento`;
+
+      if(selected.dataset.id === 'perol' && getModoPrecioPerol() === 'caja'){
+        pplEspNote.textContent = `Calculado con precio convertido desde caja de 12 y +${Math.round(boost * 100)}% rendimiento`;
+      } else {
+        pplEspNote.textContent = `Calculado con +${Math.round(boost * 100)}% rendimiento`;
+      }
+
       ppEspRow.style.display = '';
     } else {
       ppEspRow.style.display = 'none';
@@ -534,20 +640,20 @@
 
   document.getElementById('btnAnalizar').addEventListener('click', ()=>{
     tilePPL.dataset.show = "1";
-    if(!cardTondero.classList.contains('selected')){
-      cardTondero.classList.add('selected');
-    }
-    render(cardTondero);
+    const selected = getSelectedCard() || cardTondero;
+    seleccionarProducto(selected);
   });
 
-  cardTondero.addEventListener('click', ()=>{
-    const sel = cardTondero.classList.toggle('selected');
-    render(sel ? cardTondero : null);
-  });
+  cardTondero.addEventListener('click', ()=>seleccionarProducto(cardTondero));
+  cardPerol.addEventListener('click', ()=>seleccionarProducto(cardPerol));
 
   [precioActual, litrosActual, baldesSemana, locales, periodo, precioEspecializado, montoObjetivo].forEach(el=>{
-    el.addEventListener('input', ()=>render(cardTondero.classList.contains('selected') ? cardTondero : null));
-    el.addEventListener('change', ()=>render(cardTondero.classList.contains('selected') ? cardTondero : null));
+    el.addEventListener('input', ()=>render(getSelectedCard()));
+    el.addEventListener('change', ()=>render(getSelectedCard()));
+  });
+
+  radiosModoPerol.forEach(radio=>{
+    radio.addEventListener('change', ()=>render(getSelectedCard()));
   });
 
   document.getElementById('btnLimpiar').addEventListener('click', ()=>{
@@ -561,11 +667,15 @@
     tilePPL.style.display = 'none';
     ppEspRow.style.display = 'none';
     cardTondero.classList.remove('selected');
+    cardPerol.classList.remove('selected');
+    document.querySelector('input[name="modoPrecioPerol"][value="botella"]').checked = true;
+    actualizarModoPrecioUI();
     render(null);
   });
 
   document.getElementById('btnGuardar').addEventListener('click', ()=>window.print());
 
+  actualizarModoPrecioUI();
   render(null);
 })();
 </script>
